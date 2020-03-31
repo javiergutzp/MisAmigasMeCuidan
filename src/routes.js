@@ -17,11 +17,18 @@ router.post('/posts', auth, posts.createPost)
 router.patch('/posts/:id', auth, posts.updatePost)
 router.delete('/posts/:id', auth, posts.deletePost)
 
+//eventos
+router.get('/eventos/:id', auth, eventos.getEvento)
+router.get('/eventos', auth, eventos.getEventos)
+router.post('/eventos', auth, eventos.crearEvento)
+router.patch('/eventos/:id', auth, eventos.updateEvento)
+router.delete('/eventos/:id', auth, eventos.deleteEvento)
+
 
 
 router.get('*', function(req, res) {
   res.send({
-    error: 'This route does not exist, try /users or /posts'
+    error: 'This route does not exist, try /users, /posts or /eventos'
   })
 })
 

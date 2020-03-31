@@ -1,5 +1,6 @@
 const Post = require('../models/post.js')
 
+//funcion para el feed del tendedero
 const getPosts = function(req, res) {
   Post.find({}).then(function(posts) {
     res.send(posts)
@@ -8,6 +9,7 @@ const getPosts = function(req, res) {
   })
 }
 
+//funcion para obtener un post en concreto con su ID
 const getPost = function(req, res) {
   _id = req.params.id
   Post.findById(_id).then(function(post) {
@@ -20,6 +22,7 @@ const getPost = function(req, res) {
   })
 }
 
+//funcion para crear un nuevo post para el tendedero
 const createPost = function(req, res) {
   const post = new Post({
     asunto: req.body.asunto,
@@ -40,7 +43,7 @@ const updatePost = function(req, res) {
   // revisa que los updates enviados sean permitidos, que no envie una key que no permitimos
   const isValidUpdate = updates.every((update) => allowedUpdates.includes(update))
 
-  if( !isValidUpdate ) {
+  if( !isValidUpdate ) { //debemos proteger editar con auth
     return res.status(400).send({
       error: 'Invalid update, only allowed to update: ' + allowedUpdates
     })
@@ -55,6 +58,7 @@ const updatePost = function(req, res) {
   })
 }
 
+//funcion para borrar un post en especifico del tendedero, se requiere el ID. Debemos agregar auth
 const deletePost = function(req, res) {
   const _id = req.params.id
   Post.findByIdAndDelete(_id).then(function(post){
