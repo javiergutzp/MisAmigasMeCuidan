@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
     required: true
   },
   fotografia: {
-    type: Image,
+    type: String,
     required: true
   },
   tokens: [{

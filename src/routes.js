@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 
 const users = require('./controllers/users.js')
+const posts = require('./controllers/posts.js')
+const eventos = require('./controllers/eventos.js')
 
 const auth = require('./middleware/auth')
 

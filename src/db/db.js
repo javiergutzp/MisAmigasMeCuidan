@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const connectionURL = 'nuestro url'
+const connectionURL = 'mongodb+srv://admin:admin@cluster0-ipmka.mongodb.net/MAMC?retryWrites=true&w=majority'
 
 mongoose.connect(connectionURL, {
   useNewUrlParser: true,

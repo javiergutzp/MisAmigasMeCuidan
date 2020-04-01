@@ -3,7 +3,7 @@ const Evento = require('../models/evento.js')
 
 //funcion para el feed de eventos
 const getEventos = function(req, res) {
-    Post.find({}).then(function(eventos) {
+    Evento.find({}).then(function(eventos) {
       res.send(eventos)
     }).catch(function(error){
       res.status(500).send({ error })
