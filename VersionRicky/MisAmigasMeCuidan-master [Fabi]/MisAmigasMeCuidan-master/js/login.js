@@ -8,12 +8,18 @@ $('#login_button').on('click', function(){
 
     let credentials_incorrect = $('#credentials-incorrect')
 
-    if(id.val() == ''){
+    if (id.val() == ''){
         id_empty.removeClass('hidden')
     }
+    else {
+        id_empty.addClass('hidden')
+    }
 
-    if(password.val() == ''){
+    if (password.val() == ''){
         password_empty.removeClass('hidden')
+    }
+    else {
+        password_empty.addClass('hidden')
     }
 
     json_to_send = {
