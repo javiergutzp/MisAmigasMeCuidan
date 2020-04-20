@@ -44,7 +44,10 @@ $('#login_button').on('click', function(){
         window.location = 'html/home.html'
       },
       error: function(error_msg) {
-        credentials_incorrect.removeClass('hidden')
+        if (password.val() != ''){
+          credentials_incorrect.removeClass('hidden')
+      }
+        
         alert((error_msg['responseText']));
       }
     });
