@@ -23,10 +23,11 @@ $('#login_button').on('click', function(){
     }
 
     json_to_send = {
-      "password" : password.val(),
-      "id": id.val()
+      "email" : id.val(),
+      "password" : password.val()
     };
-  
+
+    
     json_to_send = JSON.stringify(json_to_send);
   
     $.ajax({
@@ -40,11 +41,11 @@ $('#login_button').on('click', function(){
       success: function(data){
         alert("Login successfull!");
         localStorage.setItem('token', data.token)
-        window.location = '.html//home.html'
+        window.location = 'html/home.html'
       },
       error: function(error_msg) {
         credentials_incorrect.removeClass('hidden')
         alert((error_msg['responseText']));
       }
     });
-  });
+});
